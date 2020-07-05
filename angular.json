@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dnt215"
+    }
+  },
+  "defaultProject": "dnt215",
+  "cli": {
+    "analytics": "44dd2188-b03a-4969-8be7-79abd0091c39"
+  }
 }
