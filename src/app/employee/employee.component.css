@@ -1,0 +1,15 @@
+.title {
+  background-color: steelblue;
+  color: white;
+}
+
+.even {
+  background-color: steelblue;
+  color: white;
+}
+
+
+.odd {
+  background-color: teal;
+  color: white;
+}

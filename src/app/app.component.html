@@ -1,1 +1,15 @@
 Hello World!
+<app-employee></app-employee>
+
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'Admin'">
+    <app-employee></app-employee>
+  </div>
+  <div *ngSwitchCase="'user'">
+    This is user view.
+  </div>
+  <div *ngSwitchDefault>
+    This is default view!
+  </div>
+
+</div>
