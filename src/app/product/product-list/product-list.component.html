@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<table *ngIf="prodList">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Mfd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of prodList">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.mfd}}</td>
+    </tr>
+  </tbody>
+</table>
