@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* h1 {
+  background-color: teal;
+  color: aqua;
+} */
+
+.app-product h1 {
+  background-color: steelblue !important;
+  color: aquamarine !important;
+}
+
+
+

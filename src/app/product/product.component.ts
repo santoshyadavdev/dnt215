@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { Product } from './product';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductComponent implements OnInit {
+
+  @HostBinding('class') class = 'app-product';
 
   productList: Array<Product> = [
     {

@@ -34,7 +34,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr [ngClass]="e? 'title': 'odd'"
+    <tr [ngClass]="e? 'even': 'odd'"
     *ngFor="let emp of empList; let i=index;  let e=even ; let o=odd; trackBy: trackByFn">
       <td>{{i}}</td>
       <td>{{e}}</td>
