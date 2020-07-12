@@ -2,4 +2,15 @@
   Product
 </h1>
 
-<app-product-list [prodList]="productList" [title]="'User Orders'"></app-product-list>
+<app-product-list [prodList]="productList" [title]="'User Orders'"
+(selectedProduct)="receiveProduct($event)">
+</app-product-list>
+
+<h2>
+  Selected Product
+</h2>
+<div *ngIf="selectedProduct">
+  {{selectedProduct?.id}}
+  {{selectedProduct?.name}}
+  {{selectedProduct?.price}}
+</div>

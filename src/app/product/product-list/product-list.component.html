@@ -1,11 +1,12 @@
 <h1>{{title}}</h1>
-<table *ngIf="prodList">
+<table class="table" *ngIf="prodList">
   <thead>
     <tr>
       <th>Id</th>
       <th>Name</th>
       <th>Price</th>
       <th>Mfd</th>
+      <th>Select</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.mfd}}</td>
+      <td><button class="btn btn-primary" (click)="sendToParent(product)">Select</button></td>
     </tr>
   </tbody>
 </table>
