@@ -1,5 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, HostBinding } from '@angular/core';
+import {
+  Component, OnInit,
+  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit
+} from '@angular/core';
 import { Product } from './product';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +11,13 @@ import { Product } from './product';
   styleUrls: ['./product.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
   @HostBinding('class') class = 'app-product';
+
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+
+  @ViewChild('nameDiv', { static: true }) div: ElementRef;
 
   productList: Array<Product> = [
     {
@@ -37,6 +45,16 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    this.div.nativeElement.innerText  = 'New Title';
+  }
+
+  ngDoCheck() {
+    console.log('do check is called');
+  }
+
+  ngAfterViewInit() {
+    this.headerComponent.title = 'Product';
   }
 
   receiveProduct(product: Product) {
