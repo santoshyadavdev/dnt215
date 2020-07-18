@@ -1,6 +1,16 @@
 <h1>Hello World!</h1>
-<app-employee></app-employee>
-<app-product></app-product>
+<!-- <app-employee>
+</app-employee>
+<app-product></app-product> -->
+
+<app-container>
+  <h1>
+    This is content Projection.
+  </h1>
+  <app-employee>
+  </app-employee>
+  <app-product></app-product>
+</app-container>
 
 <div [ngSwitch]="role">
   <div *ngSwitchCase="'Admin'">
