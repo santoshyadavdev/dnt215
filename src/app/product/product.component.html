@@ -7,6 +7,9 @@
 
 </div>
 
+<button class="btn btn-primary" (click)="addProduct()">
+  Add Product
+</button>
 <app-product-list [prodList]="productList" [title]="'User Orders'"
 (selectedProduct)="receiveProduct($event)">
 </app-product-list>

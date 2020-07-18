@@ -55,8 +55,23 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
     console.log('do check is called');
   }
 
+  addProduct() {
+    // this.productList.push({
+    // id: 4,
+    // mfd: new Date('1-jan-2019'),
+    // name: 'test4',
+    // price: 6000
+    // })
+    this.productList = [...this.productList, {
+      id: 4,
+      mfd: new Date('1-jan-2019'),
+      name: 'test4',
+      price: 6000
+    }];
+  }
+
   ngAfterViewInit() {
-    this.headerComponent.forEach((header)=> header.title = 'Product');
+    this.headerComponent.forEach((header) => header.title = 'Product');
     // this.headerComponent.title = 'Product';
   }
 
@@ -64,5 +79,6 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
     console.log(product);
     this.selectedProduct = product;
   }
+
 
 }
