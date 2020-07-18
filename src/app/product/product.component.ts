@@ -1,6 +1,6 @@
 import {
   Component, OnInit,
-  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit
+  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit, ViewChildren, QueryList
 } from '@angular/core';
 import { Product } from './product';
 import { HeaderComponent } from '../header/header.component';
@@ -15,7 +15,9 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
   @HostBinding('class') class = 'app-product';
 
-  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+  // @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+
+  @ViewChildren(HeaderComponent) headerComponent: QueryList<HeaderComponent>;
 
   @ViewChild('nameDiv', { static: true }) div: ElementRef;
 
@@ -46,7 +48,7 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
   ngOnInit(): void {
 
-    this.div.nativeElement.innerText  = 'New Title';
+    this.div.nativeElement.innerText = 'New Title';
   }
 
   ngDoCheck() {
@@ -54,7 +56,8 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.headerComponent.title = 'Product';
+    this.headerComponent.forEach((header)=> header.title = 'Product');
+    // this.headerComponent.title = 'Product';
   }
 
   receiveProduct(product: Product) {
