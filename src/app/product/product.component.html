@@ -2,6 +2,8 @@
 <app-header></app-header>
 <app-header></app-header>
 
+{{title}}
+
 <!-- templateRef -->
 <div #nameDiv>
 
@@ -17,8 +19,8 @@
 <h2>
   Selected Product
 </h2>
-<div *ngIf="selectedProduct">
+<ng-container *ngIf="selectedProduct">
   {{selectedProduct?.id}}
   {{selectedProduct?.name}}
   {{selectedProduct?.price}}
-</div>
+</ng-container>

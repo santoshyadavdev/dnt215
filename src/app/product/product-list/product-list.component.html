@@ -1,21 +1,33 @@
 <h1>{{title}}</h1>
-<table class="table" *ngIf="prodList">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Mfd</th>
-      <th>Select</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of prodList">
-      <td>{{product.id}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.mfd}}</td>
-      <td><button class="btn btn-primary" (click)="sendToParent(product)">Select</button></td>
-    </tr>
-  </tbody>
-</table>
+<ng-container *ngIf="prodList.length> 0;else noRecords;">
+  <table class="table" *ngIf="prodList">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Mfd</th>
+        <th>Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of prodList">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.mfd}}</td>
+        <td><button class="btn btn-primary" (click)="sendToParent(product)">Select</button></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #noRecords>
+  <div style="color: red;">
+    There are no records to show.
+  </div>
+</ng-template>
+<!-- <ng-template #singeRecords>
+  <ul>
+    <li>{{}}</li>
+  </ul>
+</ng-template> -->

@@ -41,6 +41,7 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
       mfd: new Date('1-Mar-2020')
     }
   ];
+  title: string;
 
   selectedProduct: Product;
 
