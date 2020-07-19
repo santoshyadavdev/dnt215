@@ -2,8 +2,9 @@ import {
   Component, OnInit,
   ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit, ViewChildren, QueryList
 } from '@angular/core';
-import { Product } from './product';
+import { Product } from './services/product';
 import { HeaderComponent } from '../header/header.component';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -21,34 +22,15 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
   @ViewChild('nameDiv', { static: true }) div: ElementRef;
 
-  productList: Array<Product> = [
-    {
-      id: 1,
-      name: 'Samsung',
-      price: 5000,
-      mfd: new Date('1-Jan-2020')
-    },
-    {
-      id: 2,
-      name: 'IPhone',
-      price: 6000,
-      mfd: new Date('1-Feb-2020')
-    },
-    {
-      id: 3,
-      name: 'Pixel',
-      price: 8000,
-      mfd: new Date('1-Mar-2020')
-    }
-  ];
+  productList: Array<Product> = [];
   title: string;
 
   selectedProduct: Product;
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-
+    this.productList = this.productService.getProducts();
     this.div.nativeElement.innerText = 'New Title';
   }
 
@@ -63,12 +45,14 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
     // name: 'test4',
     // price: 6000
     // })
-    this.productList = [...this.productList, {
+    // this.productList = [...this.productList, ];
+
+    this.productList = this.productService.addProduct({
       id: 4,
       mfd: new Date('1-jan-2019'),
       name: 'test4',
       price: 6000
-    }];
+    });
   }
 
   ngAfterViewInit() {

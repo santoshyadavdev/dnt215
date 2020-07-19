@@ -3,7 +3,7 @@ import {
   Input, Output, EventEmitter,
   OnChanges, SimpleChanges, ChangeDetectionStrategy
 } from '@angular/core';
-import { Product } from '../product';
+import { Product } from '../services/product';
 
 @Component({
   selector: 'app-product-list',
