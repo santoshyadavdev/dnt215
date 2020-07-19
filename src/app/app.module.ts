@@ -17,7 +17,7 @@ import { ContainerComponent } from './container/container.component';
     ProductComponent,
     ProductListComponent,
     HeaderComponent,
-    ContainerComponent
+    ContainerComponent,
   ],
   imports: [
     BrowserModule,

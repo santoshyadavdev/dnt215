@@ -1,15 +1,17 @@
-import { Component, OnInit, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ContentChild, AfterContentInit, Host } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
+import { ProductService } from '../product/services/product.service';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.css']
+  styleUrls: ['./container.component.css'],
+  providers: [ProductService]
 })
 export class ContainerComponent implements OnInit, AfterContentInit {
-  @ContentChild(ProductComponent) productComponet : ProductComponent;
+  @ContentChild(ProductComponent) productComponet: ProductComponent;
 
-  constructor() { }
+  constructor(@Host() productService: ProductService) { }
 
   ngOnInit(): void {
   }

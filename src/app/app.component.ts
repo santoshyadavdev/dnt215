@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, SkipSelf, Optional } from '@angular/core';
 import { ProductService } from './product/services/product.service';
+import { LoggerService } from './logger/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,15 @@ export class AppComponent {
   title = 'dnt215';
   role = 'user';
   adminRole = 'Admin';
-  constructor(private productService: ProductService) {
-
+  constructor(@SkipSelf() private productService: ProductService,
+    @Optional() private loggerService: LoggerService) {
+    if (this.loggerService) {
+      this.loggerService.log();
+    }
   }
 
   addProduct() {
-   const prodList = this.productService.addProduct({
+    const prodList = this.productService.addProduct({
       id: 5,
       mfd: new Date('10-Mar-2008'),
       name: 'test5',

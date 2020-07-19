@@ -1,6 +1,6 @@
 import {
   Component, OnInit,
-  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit, ViewChildren, QueryList
+  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit, ViewChildren, QueryList, Self
 } from '@angular/core';
 import { Product } from './services/product';
 import { HeaderComponent } from '../header/header.component';
@@ -10,7 +10,8 @@ import { ProductService } from './services/product.service';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  // providers: [ProductService]
 })
 export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
