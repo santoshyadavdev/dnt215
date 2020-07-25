@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { TodoComponent } from './todo/todo.component';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { PhotosComponent } from './todo/photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { TodoComponent } from './todo/todo.component';
     HeaderComponent,
     ContainerComponent,
     TodoComponent,
+    TodoListComponent,
+    PhotosComponent,
   ],
   imports: [
     BrowserModule,
