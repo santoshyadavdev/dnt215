@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +27,8 @@ import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PhotosComponent,
     NavbarComponent,
     TodoAddComponent,
+    EmployeeOnboardingComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDividerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },

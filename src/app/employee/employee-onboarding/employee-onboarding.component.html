@@ -1,0 +1,40 @@
+{{search.invalid}}
+{{search.value}}
+{{search.valid}}
+{{search.pristine}}
+
+<input class="form-control" [formControl]="search" placeholder="Enter Search Input">
+
+<mat-divider></mat-divider>
+<h1>
+  Employee Onboarding Form
+</h1>
+<mat-divider></mat-divider>
+
+{{onbardingForm.value |json}}
+
+<form [formGroup]="onbardingForm">
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="email" placeholder="Email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="mobileNo" placeholder="Mobile Number">
+  </mat-form-field>
+  <div formGroupName="address">
+    <mat-form-field>
+      <input matInput formControlName="addr1" placeholder="Address Line 1">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="addr2" placeholder="Address Line 2">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="city" placeholder="City">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="pin" placeholder="Pin">
+    </mat-form-field>
+  </div>
+</form>
