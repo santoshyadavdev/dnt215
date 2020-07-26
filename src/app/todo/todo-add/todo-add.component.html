@@ -1,0 +1,61 @@
+{{todo | json}}
+<h1>
+  Todo Add Form
+</h1>
+{{todoForm.value | json}}
+{{todoForm.valid | json}}
+{{todoForm.invalid | json}}
+{{todoForm.pristine | json}}
+{{todoForm.dirty | json}}
+{{todoForm.errors | json}}
+<form #todoForm="ngForm" (ngSubmit)="addTask(todoForm);todoForm.resetForm()">
+  <mat-form-field>
+    <input #userid="ngModel" required type="number" matInput name="userid" [(ngModel)]="todo.userId"
+      placeholder="User Id">
+    {{userid.value | json}}
+    {{userid.valid | json}}
+    {{userid.invalid | json}}
+    {{userid.pristine | json}}
+    {{userid.dirty | json}}
+    {{userid.errors | json}}
+    <div *ngIf="userid?.errors">
+      UserId is required!
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <input #title="ngModel" minlength="5" maxlength=10 required type="text" matInput
+      [(ngModel)]="todo.title" [ngModelOptions]="{ name: 'title', updateOn: 'submit' }" placeholder="Title">
+    {{title.value | json}}
+    {{title.valid | json}}
+    {{title.invalid | json}}
+    {{title.pristine | json}}
+    {{title.dirty | json}}
+    {{title.errors | json}}
+    <div *ngIf="title.hasError('required') && title.dirty">
+      Title is required!
+    </div>
+    <div *ngIf="title.hasError('minlength') && title.dirty">
+      Title should be at least 5 characters!
+    </div>
+    <!-- <div *ngIf="title?.errors?.required && title.dirty">
+      Title is required!
+    </div>
+    <div *ngIf="title?.errors?.minlength && title.dirty">
+      Title should be at least 5 characters!
+    </div> -->
+  </mat-form-field>
+  <mat-checkbox name="completed" [(ngModel)]="todo.completed">Completed</mat-checkbox>
+  <div>
+    <button [disabled]="todoForm.invalid" mat-raised-button color="primary">Add Todo</button>
+  </div>
+  <!-- <div>
+    <input type="number" name="userid" [(ngModel)]="todo.userId" placeholder="User Id">
+  </div>
+  <div>
+    <input type="text" name="title" [(ngModel)]="todo.title" placeholder="Title">
+  </div>
+  <input type="checkbox" name="completed" [(ngModel)]="todo.completed">
+  <div>
+    <button>Add Todo</button>
+  </div> -->
+</form>
