@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-onboarding',
@@ -8,6 +8,9 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class EmployeeOnboardingComponent implements OnInit {
 
+  get pastExp() {
+    return this.onbardingForm.get('pastExp') as FormArray;
+  }
   search: FormControl = new FormControl('Angular');
 
   onbardingForm: FormGroup;
@@ -24,8 +27,18 @@ export class EmployeeOnboardingComponent implements OnInit {
         addr2: new FormControl(''),
         city: new FormControl(''),
         pin: new FormControl(''),
-      })
+      }),
+      pastExp: this.fb.array([
+        this.fb.group({
+          orgName: new FormControl(''),
+          fromDate: new FormControl(''),
+          toDate: new FormControl(''),
+          designation: new FormControl('')
+        })
+      ])
     })
+
+    // this.onbardingForm.addControl('id', new FormControl());
   }
 
 }

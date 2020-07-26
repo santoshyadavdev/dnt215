@@ -37,4 +37,22 @@
       <input matInput formControlName="pin" placeholder="Pin">
     </mat-form-field>
   </div>
+  <div formArrayName="pastExp">
+    <div *ngFor="let exp of pastExp.controls;let i=index">
+      <div [formGroupName]="i">
+        <mat-form-field>
+          <input matInput formControlName="orgName" placeholder="Org Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="fromDate" placeholder="From Date">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="toDate" placeholder="To Date">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="designation" placeholder="Designation">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
 </form>
