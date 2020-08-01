@@ -13,12 +13,23 @@
 
 {{onbardingForm.value |json}}
 
-<form [formGroup]="onbardingForm">
+<form [formGroup]="onbardingForm" (ngSubmit)="addEmployee()">
+  <mat-form-field *ngIf="onbardingForm.get('testControl')">
+    <input matInput formControlName="testControl" placeholder="Test Control">
+  </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="name" placeholder="Name">
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="email" placeholder="Email">
+    <!-- <div *ngIf="onbardingForm.get('email').hasError('required')">
+      Please enter your email!
+    </div> -->
+    <mat-error *ngIf="onbardingForm.get('email').hasError('required')">Please enter your email!</mat-error>
+    {{onbardingForm.get('email')?.errors | json}}
+    <div *ngIf="onbardingForm.get('email').hasError('email')">
+      Please enter a valid email!
+    </div>
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="mobileNo" placeholder="Mobile Number">
@@ -35,8 +46,10 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput formControlName="pin" placeholder="Pin">
+      {{onbardingForm.get('address.pin')?.errors | json}}
     </mat-form-field>
   </div>
+  <button mat-raised-button color="primary" (click)="addExp()">Add Experience</button>
   <div formArrayName="pastExp">
     <div *ngFor="let exp of pastExp.controls;let i=index">
       <div [formGroupName]="i">
@@ -53,6 +66,13 @@
           <input matInput formControlName="designation" placeholder="Designation">
         </mat-form-field>
       </div>
+      <button mat-raised-button color="warn" (click)="removeControl(i)">Remove Experience</button>
     </div>
   </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="AddControl()">Add New Control</button>
+    <button mat-raised-button color="primary" (click)="clearAll()">Clear All</button>
+    <button [disabled]="onbardingForm.invalid" type="submit" mat-raised-button color="primary">Add Employee</button>
+  </div>
+
 </form>
