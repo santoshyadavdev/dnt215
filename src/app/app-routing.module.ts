@@ -5,6 +5,7 @@ import { TodoComponent } from './todo/todo.component';
 import { ProductComponent } from './product/product.component';
 import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'employee/onboarding', component: EmployeeOnboardingComponent },
   { path: 'todos', component: TodoComponent },
   { path: 'todos/add', component: TodoAddComponent },
-  { path: 'product', component: ProductComponent }
+  { path: 'product', component: ProductComponent },
+  { path: '', redirectTo: 'employee', pathMatch: 'full' },
+  { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({

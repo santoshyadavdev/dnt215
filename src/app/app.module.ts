@@ -29,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { EmployeeOnboardingComponent } from './employee/employee-onboarding/empl
     NavbarComponent,
     TodoAddComponent,
     EmployeeOnboardingComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
