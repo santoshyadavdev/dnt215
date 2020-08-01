@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 export class CustomValidators {
 
@@ -18,5 +18,18 @@ export class CustomValidators {
       }
       return null;
     }
+  }
+
+  static passwordValidator(form: FormGroup) {
+    const password = form.get('password');
+    const confirmpassword = form.get('confirmPassword');
+    if (password.value !== confirmpassword.value) {
+      password.setErrors({ invalidPassword: true });
+      return { invalidPassword: true }
+    }
+    else {
+      password.setErrors(null);
+      return null
+    };
   }
 }

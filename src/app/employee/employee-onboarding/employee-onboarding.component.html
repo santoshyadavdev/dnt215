@@ -10,12 +10,20 @@
   Employee Onboarding Form
 </h1>
 <mat-divider></mat-divider>
-
+{{onbardingForm.pristine |json}}
+{{onbardingForm.dirty |json}}
 {{onbardingForm.value |json}}
+{{onbardingForm.errors |json}}
 
 <form [formGroup]="onbardingForm" (ngSubmit)="addEmployee()">
   <mat-form-field *ngIf="onbardingForm.get('testControl')">
     <input matInput formControlName="testControl" placeholder="Test Control">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="password" placeholder="Password">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="confirmPassword" placeholder="Confirm Password">
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="name" placeholder="Name">
@@ -74,5 +82,7 @@
     <button mat-raised-button color="primary" (click)="clearAll()">Clear All</button>
     <button [disabled]="onbardingForm.invalid" type="submit" mat-raised-button color="primary">Add Employee</button>
   </div>
-
+<div>
+  <button mat-raised-button color="primary" (click)="resetForm()">Reset</button>
+</div>
 </form>

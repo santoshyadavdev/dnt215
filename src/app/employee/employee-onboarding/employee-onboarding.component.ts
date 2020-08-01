@@ -4,6 +4,7 @@ import {
   FormBuilder, FormArray, Validators
 } from '@angular/forms';
 import { CustomValidators } from '../validators/custom.validtors';
+import { EmployeeService } from '../services/employee.service';
 
 
 @Component({
@@ -20,15 +21,24 @@ export class EmployeeOnboardingComponent implements OnInit {
 
   onbardingForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.onbardingForm = this.fb.group({
-      name: new FormControl({ value: 'dfgfdsgfd', disabled: true }, Validators.required),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email, CustomValidators.validateEmail
-      ]),
+      name: new FormControl({ value: 'dfgfdsgfd', disabled: true },
+        { updateOn: 'blur', validators: Validators.required }
+      ),
+      email: new FormControl('',
+        {
+          updateOn: 'blur',
+          validators: [
+            Validators.required,
+            Validators.email, CustomValidators.validateEmail
+          ]
+        }),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required),
       mobileNo: new FormControl('',
         [
           Validators.required,
@@ -39,29 +49,36 @@ export class EmployeeOnboardingComponent implements OnInit {
         addr1: new FormControl('', Validators.required),
         addr2: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required),
-        pin: new FormControl('', [Validators.required, CustomValidators.pinValidator(5) ]),
+        pin: new FormControl('', [Validators.required, CustomValidators.pinValidator(5)]),
       }),
       pastExp: this.fb.array([
-        this.fb.group({
-          orgName: new FormControl(''),
-          fromDate: new FormControl(''),
-          toDate: new FormControl(''),
-          designation: new FormControl('')
-        })
+        this.buildForm()
       ])
-    })
+    }, { updateOn: 'blur', validators: CustomValidators.passwordValidator })
 
     // this.onbardingForm.addControl('id', new FormControl());
+    this.bindForm();
+  }
+
+  bindForm() {
+    const formData = this.employeeService.getEmployeeOnBoardingData();
+
+    this.onbardingForm.patchValue(formData);
   }
 
   addExp() {
     this.pastExp.push(
-      this.fb.group({
-        orgName: new FormControl(''),
-        fromDate: new FormControl(''),
-        toDate: new FormControl(''),
-        designation: new FormControl('')
-      }))
+      this.buildForm()
+    )
+  }
+
+  private buildForm() {
+    return this.fb.group({
+      orgName: new FormControl(''),
+      fromDate: new FormControl(''),
+      toDate: new FormControl(''),
+      designation: new FormControl('')
+    });
   }
 
   removeControl(i: number): void {
@@ -74,11 +91,30 @@ export class EmployeeOnboardingComponent implements OnInit {
 
   AddControl() {
     this.onbardingForm.addControl("testControl", new FormControl(''));
+    // this.onbardingForm.get('').setValidators(CustomValidators.validateEmail);
   }
 
   addEmployee() {
     // console.log(this.onbardingForm.value);
     console.log(this.onbardingForm.getRawValue());
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.onbardingForm.reset({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      mobileNo: '',
+      address: {
+        addr1: '',
+        addr2: '',
+        city: '',
+        pin: ''
+      },
+      pastExp: []
+    });
   }
 
 }
