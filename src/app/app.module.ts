@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     TodoAddComponent,
     EmployeeOnboardingComponent,
     PagenotfoundComponent,
+    TodoDetailsComponent,
   ],
   imports: [
     BrowserModule,

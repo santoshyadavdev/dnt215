@@ -6,12 +6,14 @@ import { ProductComponent } from './product/product.component';
 import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
 
 
 const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
   { path: 'employee/onboarding', component: EmployeeOnboardingComponent },
   { path: 'todos', component: TodoComponent },
+  { path: 'todos/:id', component: TodoDetailsComponent },
   { path: 'todos/add', component: TodoAddComponent },
   { path: 'product', component: ProductComponent },
   { path: '', redirectTo: 'employee', pathMatch: 'full' },
