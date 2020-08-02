@@ -7,16 +7,38 @@ import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/onboarding', component: EmployeeOnboardingComponent },
-  { path: 'todos', component: TodoComponent },
-  { path: 'todos/:id', component: TodoDetailsComponent },
-  { path: 'todos/add', component: TodoAddComponent },
-  { path: 'product', component: ProductComponent },
-  { path: '', redirectTo: 'employee', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'employee', component: EmployeeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Employee',
+      defaltEmployee: 'Test'
+    }
+  },
+  {
+    path: 'employee/onboarding', component: EmployeeOnboardingComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'todos', component: TodoComponent, canActivate: [AuthGuard] },
+  {
+    path: 'todos/:id', component: TodoDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'todos/add', component: TodoAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'product', component: ProductComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent }
 ];
 

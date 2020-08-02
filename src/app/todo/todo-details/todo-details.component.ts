@@ -12,6 +12,7 @@ export class TodoDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((res) => this.id = +  res.get('id'))
+    this.router.queryParamMap.subscribe((res) => console.log(res.get('todo')))
   }
 
 }

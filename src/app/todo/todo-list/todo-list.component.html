@@ -14,7 +14,8 @@
       <td>{{todo.userId}}</td>
       <td>{{todo.title}}</td>
       <td>{{todo.completed}}</td>
-      <td><button class="btn btn-primary" [routerLink]="['/todos', todo.id]">Details</button></td>
+      <td><button class="btn btn-primary" [routerLink]="['/todos', todo.id]"
+          [queryParams]="{ todo: todo.userId }">Details</button></td>
     </tr>
   </tbody>
 </table>

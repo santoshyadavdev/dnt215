@@ -31,6 +31,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { TodoDetailsComponent } from './todo/todo-details/todo-details.component
     EmployeeOnboardingComponent,
     PagenotfoundComponent,
     TodoDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

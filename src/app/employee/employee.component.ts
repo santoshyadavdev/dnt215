@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent {
+export class EmployeeComponent implements OnInit {
 
   name = 'Scott';
   hide = true;
@@ -39,7 +40,11 @@ export class EmployeeComponent {
     }
   ]
 
-  constructor() { }
+  constructor(private router: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.router.data.subscribe((res) => console.log(res));
+  }
 
   toggle() {
     this.hide = !this.hide;
