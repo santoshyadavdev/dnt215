@@ -8,7 +8,7 @@ import { TodoAddComponent } from './todo-add/todo-add.component';
 
 const routes: Routes = [
   {
-    path: 'todos', component: TodoComponent, canActivate: [AuthGuard],
+    path: '', component: TodoComponent, canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
       {
@@ -18,7 +18,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'todos/add', component: TodoAddComponent,
+    path: 'add', component: TodoAddComponent,
     canActivate: [AuthGuard]
   },
 ];

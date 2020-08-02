@@ -20,7 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,7 +27,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
-import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +37,6 @@ import { TodoModule } from './todo/todo.module';
     HeaderComponent,
     ContainerComponent,
     NavbarComponent,
-    TodoAddComponent,
     EmployeeOnboardingComponent,
     PagenotfoundComponent,
     LoginComponent,
@@ -61,7 +58,6 @@ import { TodoModule } from './todo/todo.module';
     FormsModule,
     ReactiveFormsModule,
     MatDividerModule,
-    TodoModule,
     AppRoutingModule,
   ],
   providers: [

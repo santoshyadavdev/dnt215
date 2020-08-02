@@ -23,6 +23,10 @@ const routes: Routes = [
     }
   },
   {
+    path: 'todos',
+    loadChildren:  () => import('./todo/todo.module').then(m=> m.TodoModule)
+  },
+  {
     path: 'employee/onboarding', component: EmployeeOnboardingComponent,
     canActivate: [AuthGuard],
     canDeactivate : [EmployeeGuard]
