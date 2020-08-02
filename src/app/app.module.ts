@@ -11,9 +11,6 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
-import { TodoComponent } from './todo/todo.component';
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
-import { PhotosComponent } from './todo/photos/photos.component';
 import { AppInterceptor } from './app.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,8 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
 import { LoginComponent } from './login/login.component';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -41,19 +38,14 @@ import { LoginComponent } from './login/login.component';
     ProductListComponent,
     HeaderComponent,
     ContainerComponent,
-    TodoComponent,
-    TodoListComponent,
-    PhotosComponent,
     NavbarComponent,
     TodoAddComponent,
     EmployeeOnboardingComponent,
     PagenotfoundComponent,
-    TodoDetailsComponent,
     LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -68,7 +60,9 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    TodoModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },

@@ -25,15 +25,6 @@ const routes: Routes = [
     path: 'employee/onboarding', component: EmployeeOnboardingComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'todos', component: TodoComponent, canActivate: [AuthGuard] },
-  {
-    path: 'todos/:id', component: TodoDetailsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'todos/add', component: TodoAddComponent,
-    canActivate: [AuthGuard]
-  },
   {
     path: 'product', component: ProductComponent,
     canActivate: [AuthGuard]

@@ -10,23 +10,25 @@ import { LoggerService } from './logger/logger.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dnt215';
-  role = 'user';
-  adminRole = 'Admin';
-  constructor(@SkipSelf() private productService: ProductService,
-    @Optional() private loggerService: LoggerService) {
-    if (this.loggerService) {
-      this.loggerService.log();
-    }
-  }
+  // title = 'dnt215';
+  // role = 'user';
+  // adminRole = 'Admin';
+  // constructor(
+  //   @SkipSelf() private productService: ProductService,
+  //   @Optional() private loggerService: LoggerService
+  //   ) {
+  //   if (this.loggerService) {
+  //     this.loggerService.log();
+  //   }
+  // }
 
-  addProduct() {
-    const prodList = this.productService.addProduct({
-      id: 5,
-      mfd: new Date('10-Mar-2008'),
-      name: 'test5',
-      price: 4000
-    });
-    console.log(prodList);
-  }
+  // addProduct() {
+  //   const prodList = this.productService.addProduct({
+  //     id: 5,
+  //     mfd: new Date('10-Mar-2008'),
+  //     name: 'test5',
+  //     price: 4000
+  //   });
+  //   console.log(prodList);
+  // }
 }

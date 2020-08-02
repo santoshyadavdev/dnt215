@@ -6,12 +6,18 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   isLoggedIn: boolean = false;
+  isAdmin = false;
   constructor() { }
 
   login(userName: string, password: string): boolean {
     if (userName === 'admin'
       && password === 'admin') {
-      return this.isLoggedIn = true
+      this.isLoggedIn = true
+      this.isAdmin = true
+    } else if (userName === 'user'
+      && password === 'user') {
+      this.isAdmin = false;
+      this.isLoggedIn = true
     }
     return this.isLoggedIn;
   }
