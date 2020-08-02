@@ -9,6 +9,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EmployeeGuard } from './employee/guards/employee.guard';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'employee/onboarding', component: EmployeeOnboardingComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canDeactivate : [EmployeeGuard]
   },
   {
     path: 'product', component: ProductComponent,
