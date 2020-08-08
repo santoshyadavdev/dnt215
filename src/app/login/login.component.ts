@@ -32,9 +32,11 @@ export class LoginComponent implements OnInit {
       let loginUrl = '';
       this.route.queryParamMap.subscribe((res) => loginUrl = res.get('loginUrl'))
       // code to redirect
-      this.router.navigate([loginUrl === '' ? '/employee' : loginUrl], {
-        fragment: 'employee',
-      });
+      this.router.navigate(['/employee']);
+      // this.router.navigate(
+      //   [loginUrl === '' ? '/employee' : loginUrl], {
+      //   fragment: 'employee',
+      // });
     } else {
       this.errorMessage = "The username or password you enetered is incorrect!";
     }

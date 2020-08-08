@@ -4,11 +4,15 @@ import { TodoComponent } from './todo.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
+import { TodoGuard } from './todo.guard';
 
 
 const routes: Routes = [
   {
     path: '', component: TodoComponent, canActivate: [AuthGuard],
+    resolve: {
+      todoList : TodoGuard
+    },
     canActivateChild: [AuthGuard],
     children: [
       {

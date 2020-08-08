@@ -4,5 +4,6 @@
 <app-photos></app-photos>
 
 <router-outlet></router-outlet>
-<app-todo-list [todoList]="todos"></app-todo-list>
+
+<app-todo-list [todoList]="todos$ | async "></app-todo-list>
 

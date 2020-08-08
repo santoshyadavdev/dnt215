@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProductComponent } from './product/product.component';
@@ -24,12 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'todos',
-    loadChildren:  () => import('./todo/todo.module').then(m=> m.TodoModule)
+    loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'employee/onboarding', component: EmployeeOnboardingComponent,
     canActivate: [AuthGuard],
-    canDeactivate : [EmployeeGuard]
+    canDeactivate: [EmployeeGuard]
   },
   {
     path: 'product', component: ProductComponent,
@@ -40,7 +41,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes
+    // {
+    //   preloadingStrategy: PreloadAllModules
+    // }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

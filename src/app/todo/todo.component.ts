@@ -1,19 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TodoService } from './service/todo.service';
 import { Todo } from './service/todo';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription, Observable } from 'rxjs';
+import { OndestroyService } from '../ondestroy.service';
+import { takeUntil, pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
-export class TodoComponent implements OnInit {
-  todos: Todo[];
-  constructor(private todoService: TodoService) { }
+export class TodoComponent implements OnInit, OnDestroy {
+  // todos: Todo[];
+
+  todos$: Observable<Todo[]>
+
+  subscription$: Subscription;
+
+  constructor(private todoService: TodoService,
+    private route: ActivatedRoute,
+    private onDestroyService: OndestroyService) { }
+
 
   ngOnInit(): void {
-    this.todoService.getTodo().subscribe((data) => this.todos = data);
+    // this.subscription$ = this.route.data.subscribe((res) => this.todos = res['todoList']);
+    // this.route.data.pipe(
+    //   takeUntil(this.onDestroyService)
+    // )
+    //   .subscribe((res) => this.todos = res['todoList']);
+    // this.todoService.getTodo().subscribe((data) => this.todos = data);
+
+    this.todos$ = this.route.data.pipe(
+      pluck('todoList')
+    );
+    // .subscribe((res) => this.todos = res['todoList']);
   }
 
   addTask() {
@@ -22,7 +44,7 @@ export class TodoComponent implements OnInit {
       userId: 1,
       completed: false
     };
-    this.todoService.addTodo(task).subscribe((res) => console.log(res));
+    this.subscription$ = this.todoService.addTodo(task).subscribe((res) => console.log(res));
   }
 
   updateTask() {
@@ -32,7 +54,7 @@ export class TodoComponent implements OnInit {
       completed: false,
       id: 1
     };
-    this.todoService.updateTodo(task).subscribe((res) => console.log(res));
+    this.subscription$ = this.todoService.updateTodo(task).subscribe((res) => console.log(res));
   }
 
   deleteTask() {
@@ -42,7 +64,13 @@ export class TodoComponent implements OnInit {
       completed: false,
       id: 1
     };
-    this.todoService.deleteTodo(task).subscribe((res) => console.log(res));
+    this.subscription$ = this.todoService.deleteTodo(task).subscribe((res) => console.log(res));
   }
+
+  // ngOnDestroy() {
+  //   if (this.subscription$) {
+  //     this.subscription$.unsubscribe();
+  //   }
+  // }
 
 }
