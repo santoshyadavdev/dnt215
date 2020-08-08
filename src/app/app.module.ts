@@ -29,6 +29,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomePipe } from './welcome.pipe';
 import { SalaryPipe } from './employee/salary.pipe';
+import { HoverDirective } from './hover.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SalaryPipe } from './employee/salary.pipe';
     LoginComponent,
     WelcomePipe,
     SalaryPipe,
+    HoverDirective,
   ],
   imports: [
     BrowserModule,

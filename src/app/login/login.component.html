@@ -1,10 +1,10 @@
 {{errorMessage}}
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <mat-form-field>
-    <input matInput formControlName="userName" placeholder="Enter the user name">
+    <input appHover color="steelblue" matInput formControlName="userName" placeholder="Enter the user name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="password" formControlName="password" placeholder="Password">
+    <input appHover color="gray" matInput type="password" formControlName="password" placeholder="Password">
   </mat-form-field>
   <div>
     <button mat-raised-button color="primary">Login</button>
