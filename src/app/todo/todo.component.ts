@@ -12,7 +12,7 @@ import { takeUntil, pluck } from 'rxjs/operators';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
-export class TodoComponent implements OnInit, OnDestroy {
+export class TodoComponent implements OnInit {
   // todos: Todo[];
 
   todos$: Observable<Todo[]>

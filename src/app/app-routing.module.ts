@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'employee', component: EmployeeComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: {
       title: 'Employee',
       defaltEmployee: 'Test'
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'employee/onboarding', component: EmployeeOnboardingComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     canDeactivate: [EmployeeGuard]
   },
   {

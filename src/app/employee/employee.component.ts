@@ -16,7 +16,8 @@ export class EmployeeComponent implements OnInit {
     id: 1,
     name: 'Rob',
     email: 'rob@test.com',
-    dob: new Date('10-Mar-2009')
+    dob: new Date('10-Mar-2009'),
+    salary: 65000
   }
 
   empList: Array<Employee> = [
@@ -24,19 +25,22 @@ export class EmployeeComponent implements OnInit {
       id: 1,
       name: 'Rob',
       email: 'rob@test.com',
-      dob: new Date('10-Mar-2009')
+      dob: new Date('10-Mar-2009'),
+      salary: 1000
     },
     {
       id: 2,
       name: 'Sam',
       email: 'Sam@test.com',
-      dob: new Date('10-Mar-2012')
+      dob: new Date('10-Mar-2012'),
+      salary: 2000
     },
     {
       id: 3,
       name: 'Scott',
       email: 'Scott@test.com',
-      dob: new Date('10-Mar-2000')
+      dob: new Date('10-Mar-2000'),
+      salary: 3000
     }
   ]
 
