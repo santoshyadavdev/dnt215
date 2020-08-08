@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CustomValidatorDirective } from './custom-validator.directive';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -18,14 +20,16 @@ import { MatInputModule } from '@angular/material/input';
     TodoListComponent,
     TodoDetailsComponent,
     PhotosComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    CustomValidatorDirective
   ],
   imports: [
     CommonModule,
     TodoRoutingModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ]
 })
 export class TodoModule { }

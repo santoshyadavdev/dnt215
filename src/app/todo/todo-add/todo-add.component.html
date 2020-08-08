@@ -23,8 +23,8 @@
     </div>
   </mat-form-field>
   <mat-form-field>
-    <input #title="ngModel" minlength="5" maxlength=10 required type="text" matInput
-      [(ngModel)]="todo.title" [ngModelOptions]="{ name: 'title', updateOn: 'submit' }" placeholder="Title">
+    <input appCustomValidator #title="ngModel" minlength="5" maxlength=10 required type="text" matInput
+      [(ngModel)]="todo.title" [ngModelOptions]="{ name: 'title', updateOn: 'blur' }" placeholder="Title">
     {{title.value | json}}
     {{title.valid | json}}
     {{title.invalid | json}}

@@ -22,7 +22,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'add', component: TodoAddComponent,
+    path: 'task/add', component: TodoAddComponent,
     canActivate: [AuthGuard]
   },
 ];
