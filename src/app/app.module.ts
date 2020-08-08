@@ -27,6 +27,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
+import { WelcomePipe } from './welcome.pipe';
+import { SalaryPipe } from './employee/salary.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { LoginComponent } from './login/login.component';
     EmployeeOnboardingComponent,
     PagenotfoundComponent,
     LoginComponent,
+    WelcomePipe,
+    SalaryPipe,
   ],
   imports: [
     BrowserModule,

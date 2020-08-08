@@ -12,6 +12,9 @@
 
 <button (click)="toggle()">Toggle</button>
 
+<div>{{employee | welcome }}</div>
+
+
 <h2>
   Employee Details
 </h2>
@@ -21,6 +24,8 @@
 <div>{{employee.dob}}</div>
 
 {{empList}}
+
+<input type="number" class="form-control" [(ngModel)]="amount" placeholder="Enter the salary">
 <table class="table" *ngIf="empList">
   <thead>
     <tr>
@@ -36,14 +41,14 @@
   </thead>
   <tbody>
     <tr [ngClass]="e? 'even': 'odd'"
-      *ngFor="let emp of empList; let i=index;  let e=even ; let o=odd; trackBy: trackByFn">
+      *ngFor="let emp of empList | salary : amount ; let i=index;  let e=even ; let o=odd; trackBy: trackByFn">
       <td>{{i | percent}}</td>
       <td>{{e}}</td>
       <td>{{o}}</td>
       <td>{{emp.id}}</td>
       <td>{{emp.name | uppercase}}</td>
       <td>{{emp.email | lowercase}}</td>
-      <td>{{emp.dob | date: 'dd-MMM-yyy' }}</td>
+      <td>{{emp.dob | date: 'dd-MMM-yyy' |  lowercase }}</td>
       <td>{{emp.salary | currency: 'INR' }}</td>
     </tr>
   </tbody>

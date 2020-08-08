@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeComponent implements OnInit {
 
+  amount =0;
   name = 'Scott';
   hide = true;
 
