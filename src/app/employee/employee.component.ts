@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product/services/product.service';
+import { Observable } from 'rxjs';
+import { Product } from '../product/services/product';
 
 @Component({
   selector: 'app-employee',
@@ -43,9 +46,15 @@ export class EmployeeComponent implements OnInit {
       dob: new Date('10-Mar-2000'),
       salary: 3000
     }
-  ]
+  ];
 
-  constructor(private router: ActivatedRoute) { }
+  productList$: Observable<Product[]> = this.productService.getProd();
+
+
+  constructor(private router: ActivatedRoute,
+    private productService: ProductService) { }
+
+
 
   ngOnInit() {
     this.router.data.subscribe((res) => console.log(res));
@@ -57,6 +66,16 @@ export class EmployeeComponent implements OnInit {
 
   trackByFn(id: number, data: Employee) {
     return data.id;
+  }
+
+  addProduct() {
+    const product = {
+      id: 5,
+      mfd: new Date('1-jan-2019'),
+      name: 'test5',
+      price: 6000
+    };
+    this.productService.addProd(product);
   }
 
 }

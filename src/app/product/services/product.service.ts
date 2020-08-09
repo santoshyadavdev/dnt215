@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
+import { Subject, Observable, BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,29 @@ export class ProductService {
 
   productList: Product[] = [];
 
+  // products$ = new Subject<Product[]>();
+
+  products$ = new BehaviorSubject<Product[]>([
+    {
+      id: 0,
+      name: '',
+      price: 0,
+      mfd: new Date('1-Jan-2020')
+    }]);
+
+  // products$ = new ReplaySubject<Product[]>(2);
+
   constructor() {
     console.log('Product Service is intialized');
+  }
+
+  addProd(product: Product): void {
+    this.productList.push(product);
+    this.products$.next(this.productList);
+  }
+
+  getProd(): Observable<Product[]> {
+    return this.products$.asObservable();
   }
 
   getProducts() {

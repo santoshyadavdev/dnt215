@@ -5,6 +5,7 @@ import {
 import { Product } from './services/product';
 import { HeaderComponent } from '../header/header.component';
 import { ProductService } from './services/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -28,6 +29,9 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
 
   selectedProduct: Product;
 
+  productList$: Observable<Product[]> = this.productService.getProd();
+
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -48,12 +52,19 @@ export class ProductComponent implements OnInit, DoCheck, AfterViewInit {
     // })
     // this.productList = [...this.productList, ];
 
-    this.productList = this.productService.addProduct({
+    // this.productList = this.productService.addProduct({
+    //   id: 4,
+    //   mfd: new Date('1-jan-2019'),
+    //   name: 'test4',
+    //   price: 6000
+    // });
+    const product = {
       id: 4,
       mfd: new Date('1-jan-2019'),
       name: 'test4',
       price: 6000
-    });
+    };
+    this.productService.addProd(product);
   }
 
   ngAfterViewInit() {

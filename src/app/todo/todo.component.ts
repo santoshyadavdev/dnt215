@@ -31,7 +31,7 @@ export class TodoComponent implements OnInit {
     // )
     //   .subscribe((res) => this.todos = res['todoList']);
     // this.todoService.getTodo().subscribe((data) => this.todos = data);
-
+    this.todoService.getByTodoId().subscribe((res)=> console.log(res));
     this.todos$ = this.route.data.pipe(
       pluck('todoList')
     );
