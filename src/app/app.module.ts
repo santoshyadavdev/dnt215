@@ -30,6 +30,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomePipe } from './welcome.pipe';
 import { SalaryPipe } from './employee/salary.pipe';
 import { HoverDirective } from './hover.directive';
+import { APP_SERVICE, APP_CONFIG } from './app.service';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { HoverDirective } from './hover.directive';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
+    { provide: APP_SERVICE, useValue: APP_CONFIG }
     // { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

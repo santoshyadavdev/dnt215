@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Employee } from './employee';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product/services/product.service';
 import { Observable } from 'rxjs';
 import { Product } from '../product/services/product';
+import { inject } from '@angular/core/testing';
+import { APP_SERVICE } from '../app.service';
+import { AppConfig } from '../app.config';
+import { NewEmployeeService } from './service/employee.service';
 
 @Component({
   selector: 'app-employee',
@@ -12,7 +16,7 @@ import { Product } from '../product/services/product';
 })
 export class EmployeeComponent implements OnInit {
 
-  amount =0;
+  amount = 0;
   name = 'Scott';
   hide = true;
 
@@ -52,12 +56,15 @@ export class EmployeeComponent implements OnInit {
 
 
   constructor(private router: ActivatedRoute,
-    private productService: ProductService) { }
-
-
+    private factoryDemo: NewEmployeeService,
+    private productService: ProductService,
+    @Inject(APP_SERVICE) private appService: AppConfig) {
+    console.log(appService.jsonAPi);
+  }
 
   ngOnInit() {
     this.router.data.subscribe((res) => console.log(res));
+    this.factoryDemo.getLoginStatus();
   }
 
   toggle() {
