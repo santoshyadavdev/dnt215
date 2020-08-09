@@ -32,6 +32,8 @@ import { SalaryPipe } from './employee/salary.pipe';
 import { HoverDirective } from './hover.directive';
 import { APP_SERVICE, APP_CONFIG } from './app.service';
 
+import { Dnt215CoreModule } from 'dnt215-core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +68,7 @@ import { APP_SERVICE, APP_CONFIG } from './app.service';
     ReactiveFormsModule,
     MatDividerModule,
     AppRoutingModule,
+    Dnt215CoreModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
