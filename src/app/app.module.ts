@@ -33,6 +33,8 @@ import { HoverDirective } from './hover.directive';
 import { APP_SERVICE, APP_CONFIG } from './app.service';
 
 import { Dnt215CoreModule } from 'dnt215-core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { Dnt215CoreModule } from 'dnt215-core';
     ReactiveFormsModule,
     MatDividerModule,
     AppRoutingModule,
-    Dnt215CoreModule
+    Dnt215CoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
