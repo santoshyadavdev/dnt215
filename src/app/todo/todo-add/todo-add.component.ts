@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Form, FormControl, NgForm } from '@angular/forms';
 import { Todo } from '../service/todo';
 import { TodoService } from '../service/todo.service';
-import { FormControl, Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-add',
@@ -10,7 +10,7 @@ import { FormControl, Form, NgForm } from '@angular/forms';
 })
 export class TodoAddComponent implements OnInit {
 
-  @ViewChild('title', { static:true }) title: FormControl;
+  @ViewChild('title', { static: true }) title: FormControl;
 
   todo: Todo = {
     userId: 0,
@@ -21,14 +21,14 @@ export class TodoAddComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
-    this.title.valueChanges.subscribe((res)=> console.log(res));
+    this.title.valueChanges.subscribe((res) => console.log(res));
   }
 
   addTask(todoForm: NgForm) {
-    if(todoForm.invalid) {
+    if (todoForm.invalid) {
       console.log('there are some errors on the form!');
     } else {
-      this.todoService.addTodo(this.todo).subscribe((res)=> console.log(res));
+      this.todoService.addTodo(this.todo).subscribe((res) => console.log(res));
     }
   }
 

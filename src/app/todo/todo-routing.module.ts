@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TodoComponent } from './todo.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
-import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { TodoComponent } from './todo.component';
 import { TodoGuard } from './todo.guard';
 
 

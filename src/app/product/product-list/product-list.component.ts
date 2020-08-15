@@ -1,7 +1,7 @@
 import {
-  Component, OnInit,
-  Input, Output, EventEmitter,
-  OnChanges, SimpleChanges, ChangeDetectionStrategy
+  ChangeDetectionStrategy, Component,
+  EventEmitter, Input, OnChanges,
+  OnInit, Output, SimpleChanges
 } from '@angular/core';
 import { Product } from '../services/product';
 

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { TodoComponent } from './todo/todo.component';
+import { EmployeeGuard } from './employee/guards/employee.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProductComponent } from './product/product.component';
 import { TodoAddComponent } from './todo/todo-add/todo-add.component';
-import { EmployeeOnboardingComponent } from './employee/employee-onboarding/employee-onboarding.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './guards/auth.guard';
-import { EmployeeGuard } from './employee/guards/employee.guard';
+import { TodoComponent } from './todo/todo.component';
 
 
 const routes: Routes = [

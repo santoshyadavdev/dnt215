@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
   HttpEvent,
+  HttpHandler,
+  HttpHeaders,
   HttpInterceptor,
-  HttpHeaders
+  HttpRequest
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -25,7 +25,7 @@ export class AppInterceptor implements HttpInterceptor {
     }
     if (request.method === 'POST') {
       const header = new HttpHeaders().set('x-access-token', 'dsjhkhgfjsdkfgkjsfjkfdhgkjfdhg');
-      let updatedBody: any = request.body;
+      const updatedBody: any = request.body;
       updatedBody.createdDate = new Date();
       const modifiedRequest = request.clone({
         body: updatedBody,

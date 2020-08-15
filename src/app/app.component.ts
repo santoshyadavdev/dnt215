@@ -1,6 +1,6 @@
-import { Component, SkipSelf, Optional } from '@angular/core';
-import { ProductService } from './product/services/product.service';
+import { Component, Optional, SkipSelf } from '@angular/core';
 import { LoggerService } from './logger/logger.service';
+import { ProductService } from './product/services/product.service';
 
 @Component({
   selector: 'app-root',

@@ -5,7 +5,7 @@ export class CustomValidators {
   static validateEmail(control: AbstractControl) {
     const email = control.value as string;
     if (email.includes('test')) {
-      return { inValidEmail: true }
+      return { inValidEmail: true };
     }
     return null;
   }
@@ -14,10 +14,10 @@ export class CustomValidators {
     return (control: AbstractControl) => {
       const pin = control.value as string;
       if (pin.length < length || pin.length > length) {
-        return { inValidPin: true }
+        return { inValidPin: true };
       }
       return null;
-    }
+    };
   }
 
   static passwordValidator(form: FormGroup) {
@@ -25,11 +25,11 @@ export class CustomValidators {
     const confirmpassword = form.get('confirmPassword');
     if (password.value !== confirmpassword.value) {
       password.setErrors({ invalidPassword: true });
-      return { invalidPassword: true }
+      return { invalidPassword: true };
     }
     else {
       password.setErrors(null);
-      return null
-    };
+      return null;
+    }
   }
 }

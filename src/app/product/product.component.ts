@@ -1,11 +1,11 @@
 import {
-  Component, OnInit,
-  ViewEncapsulation, HostBinding, ViewChild, ElementRef, DoCheck, AfterViewInit, ViewChildren, QueryList, Self
+  AfterViewInit, Component,
+  DoCheck, ElementRef, HostBinding, OnInit, QueryList, Self, ViewChild, ViewChildren, ViewEncapsulation
 } from '@angular/core';
-import { Product } from './services/product';
-import { HeaderComponent } from '../header/header.component';
-import { ProductService } from './services/product.service';
 import { Observable } from 'rxjs';
+import { HeaderComponent } from '../header/header.component';
+import { Product } from './services/product';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-product',

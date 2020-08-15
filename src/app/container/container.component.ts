@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChild, AfterContentInit, Host } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Host, OnInit } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
 import { ProductService } from '../product/services/product.service';
 

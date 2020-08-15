@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TodoService } from './service/todo.service';
-import { Todo } from './service/todo';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { pluck, takeUntil } from 'rxjs/operators';
 import { OndestroyService } from '../ondestroy.service';
-import { takeUntil, pluck } from 'rxjs/operators';
+import { Todo } from './service/todo';
+import { TodoService } from './service/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -15,13 +15,13 @@ import { takeUntil, pluck } from 'rxjs/operators';
 export class TodoComponent implements OnInit {
   // todos: Todo[];
 
-  todos$: Observable<Todo[]>
+  todos$: Observable<Todo[]>;
 
   subscription$: Subscription;
 
   constructor(private todoService: TodoService,
-    private route: ActivatedRoute,
-    private onDestroyService: OndestroyService) { }
+              private route: ActivatedRoute,
+              private onDestroyService: OndestroyService) { }
 
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class TodoComponent implements OnInit {
     // )
     //   .subscribe((res) => this.todos = res['todoList']);
     // this.todoService.getTodo().subscribe((data) => this.todos = data);
-    this.todoService.getByTodoId().subscribe((res)=> console.log(res));
+    this.todoService.getByTodoId().subscribe((res) => console.log(res));
     this.todos$ = this.route.data.pipe(
       pluck('todoList')
     );

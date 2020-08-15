@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanActivateChild, CanLoad, Route, UrlSegment } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/services/login.service';
 
@@ -9,7 +9,7 @@ import { LoginService } from '../login/services/login.service';
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   constructor(private loginService: LoginService,
-    private router: Router) {
+              private router: Router) {
 
   }
 
@@ -24,7 +24,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     });
   }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot):
+    Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.loginService.isAdmin;
   }
 

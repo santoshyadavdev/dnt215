@@ -35,6 +35,6 @@ export class EmployeeService {
           designation: 'dsfsdf'
         }
       ]
-    }
+    };
   }
 }

@@ -1,12 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Employee } from './employee';
-import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product/services/product.service';
-import { Observable } from 'rxjs';
-import { Product } from '../product/services/product';
+import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { APP_SERVICE } from '../app.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AppConfig } from '../app.config';
+import { APP_SERVICE } from '../app.service';
+import { Product } from '../product/services/product';
+import { ProductService } from '../product/services/product.service';
+import { Employee } from './employee';
 import { NewEmployeeService } from './service/employee.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class EmployeeComponent implements OnInit {
     email: 'rob@test.com',
     dob: new Date('10-Mar-2009'),
     salary: 65000
-  }
+  };
 
   empList: Array<Employee> = [
     {
@@ -56,9 +56,9 @@ export class EmployeeComponent implements OnInit {
 
 
   constructor(private router: ActivatedRoute,
-    private factoryDemo: NewEmployeeService,
-    private productService: ProductService,
-    @Inject(APP_SERVICE) private appService: AppConfig) {
+              private factoryDemo: NewEmployeeService,
+              private productService: ProductService,
+              @Inject(APP_SERVICE) private appService: AppConfig) {
     console.log(appService.jsonAPi);
   }
 

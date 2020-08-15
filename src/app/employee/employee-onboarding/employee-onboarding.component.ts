@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl, FormGroup,
-  FormBuilder, FormArray, Validators
+  FormArray, FormBuilder,
+  FormControl, FormGroup, Validators
 } from '@angular/forms';
-import { CustomValidators } from '../validators/custom.validtors';
 import { EmployeeService } from '../services/employee.service';
+import { CustomValidators } from '../validators/custom.validtors';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class EmployeeOnboardingComponent implements OnInit {
   onbardingForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private employeeService: EmployeeService) { }
+              private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.onbardingForm = this.fb.group({
@@ -54,7 +54,7 @@ export class EmployeeOnboardingComponent implements OnInit {
       pastExp: this.fb.array([
         this.buildForm()
       ])
-    }, { updateOn: 'blur', validators: CustomValidators.passwordValidator })
+    }, { updateOn: 'blur', validators: CustomValidators.passwordValidator });
 
     // this.onbardingForm.addControl('id', new FormControl());
     this.bindForm();
@@ -69,7 +69,7 @@ export class EmployeeOnboardingComponent implements OnInit {
   addExp() {
     this.pastExp.push(
       this.buildForm()
-    )
+    );
   }
 
   private buildForm() {
@@ -90,7 +90,7 @@ export class EmployeeOnboardingComponent implements OnInit {
   }
 
   AddControl() {
-    this.onbardingForm.addControl("testControl", new FormControl(''));
+    this.onbardingForm.addControl('testControl', new FormControl(''));
     // this.onbardingForm.get('').setValidators(CustomValidators.validateEmail);
   }
 

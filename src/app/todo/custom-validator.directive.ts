@@ -1,5 +1,5 @@
 import { Directive } from '@angular/core';
-import { Validator, AbstractControl, ValidationErrors, NG_VALIDATORS } from '@angular/forms';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 
 @Directive({
   selector: '[appCustomValidator]',
@@ -11,9 +11,9 @@ export class CustomValidatorDirective implements Validator {
 
   validate(control: AbstractControl): ValidationErrors | null {
     if (control && control.value && control.value.includes('test')) {
-      return { inValidTitle: true }
+      return { inValidTitle: true };
     } else {
-      return null
+      return null;
     }
 
   }

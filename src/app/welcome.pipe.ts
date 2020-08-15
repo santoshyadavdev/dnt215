@@ -6,7 +6,7 @@ import { Employee } from './employee/employee';
 })
 export class WelcomePipe implements PipeTransform {
 
-  transform(emp: Employee) : string {
+  transform(emp: Employee): string {
     return `Welcome ${emp.name}`;
   }
 

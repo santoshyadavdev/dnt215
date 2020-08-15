@@ -1,6 +1,6 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../service/todo.service';
-import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-photos',
@@ -8,7 +8,7 @@ import { HttpEventType } from '@angular/common/http';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  total= 0;
+  total = 0;
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {

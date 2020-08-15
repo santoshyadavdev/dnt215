@@ -1,8 +1,8 @@
+import { HttpClient, HttpHandler, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { Todo } from './todo';
-import { tap, mergeMap, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { Todo } from './todo';
 
 
 @Injectable({
@@ -10,7 +10,7 @@ import { of } from 'rxjs';
 })
 export class TodoService {
 
-  public ids$ = of([1, 2, 4, 5,]);
+  public ids$ = of([1, 2, 4, 5, ]);
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class TodoService {
       // }
     ).pipe(
       tap(res => console.log(res))
-    )
+    );
   }
 
   getByTodoId() {
